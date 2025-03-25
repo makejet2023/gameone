@@ -53,6 +53,21 @@
             border-radius: 1rem;
             overflow: hidden;
         }
+        .fullscreen-button {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background-color: #007bff;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .fullscreen-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -101,24 +116,30 @@
 <!-- Main Content -->
 <main class="container mx-auto p-4">
     <section class="category-grid">
-        <!-- Sample game cards -->
-        <div class="card">
-            <img src="https://via.placeholder.com/250x150?text=Casual+Game+1" alt="Casual Game 1">
+        <!-- Casual Game 1 -->
+        <div class="card relative">
+            <iframe id="gameIframe1" class="game-iframe" src="https://html5.gamedistribution.com/2854f3f9a9244d76a577fab1e2349219/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" title="Casual Game 1"></iframe>
+            <button id="fullscreenButton1" class="fullscreen-button">Fullscreen</button>
             <div class="card-content">
                 <h2 class="text-xl font-bold">Casual Game 1</h2>
                 <p>A brief description of Casual Game 1...</p>
             </div>
         </div>
-        <div class="card">
-            <img src="https://via.placeholder.com/250x150?text=Casual+Game+2" alt="Casual Game 2">
+
+        <!-- Casual Game 2 -->
+        <div class="card relative">
+            <iframe id="gameIframe2" class="game-iframe" src="https://html5.gamedistribution.com/828864726be944c2bff67fa68d505e96/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" title="Casual Game 2"></iframe>
+            <button id="fullscreenButton2" class="fullscreen-button">Fullscreen</button>
             <div class="card-content">
                 <h2 class="text-xl font-bold">Casual Game 2</h2>
                 <p>A brief description of Casual Game 2...</p>
             </div>
         </div>
+
+        <!-- Sweet Business of Cats: Cakes -->
         <div class="card relative">
-            <iframe id="gameIframe" class="game-iframe" src="https://html5.gamedistribution.com/8bbb246747684364a3c72b1c34c4767c/?gd_sdk_referrer_url=https://gamedistribution.com/games/sweet-business-of-cats:-cakes/" title="Sweet Business of Cats: Cakes"></iframe>
-            <button id="fullscreenButton" class="absolute top-2 right-2 bg-blue-500 text-white px-4 py-2 rounded-full cursor-pointer hover:bg-blue-700">Fullscreen</button>
+            <iframe id="gameIframe3" class="game-iframe" src="https://html5.gamedistribution.com/8bbb246747684364a3c72b1c34c4767c/?gd_sdk_referrer_url=https://gamedistribution.com/games/sweet-business-of-cats:-cakes/" title="Sweet Business of Cats: Cakes"></iframe>
+            <button id="fullscreenButton3" class="fullscreen-button">Fullscreen</button>
             <div class="card-content">
                 <h2 class="text-xl font-bold">Sweet Business of Cats: Cakes</h2>
                 <p>Manage your cat bakery and serve delicious cakes to customers!</p>
@@ -133,17 +154,31 @@
 </footer>
 
 <script>
-    document.getElementById('fullscreenButton').addEventListener('click', () => {
-        const iframe = document.getElementById('gameIframe');
-        if (iframe.requestFullscreen) {
-            iframe.requestFullscreen();
-        } else if (iframe.mozRequestFullScreen) { // Firefox
-            iframe.mozRequestFullScreen();
-        } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
-            iframe.webkitRequestFullscreen();
-        } else if (iframe.msRequestFullscreen) { // IE/Edge
-            iframe.msRequestFullscreen();
+    function requestFullscreen(element) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) { // Firefox
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) { // IE/Edge
+            element.msRequestFullscreen();
         }
+    }
+
+    document.getElementById('fullscreenButton1').addEventListener('click', () => {
+        const iframe = document.getElementById('gameIframe1');
+        requestFullscreen(iframe);
+    });
+
+    document.getElementById('fullscreenButton2').addEventListener('click', () => {
+        const iframe = document.getElementById('gameIframe2');
+        requestFullscreen(iframe);
+    });
+
+    document.getElementById('fullscreenButton3').addEventListener('click', () => {
+        const iframe = document.getElementById('gameIframe3');
+        requestFullscreen(iframe);
     });
 </script>
 
