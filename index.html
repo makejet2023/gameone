@@ -68,6 +68,22 @@
         .fullscreen-button:hover {
             background-color: #0056b3;
         }
+        .exit-fullscreen-button {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #dc3545;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+        .exit-fullscreen-button:hover {
+            background-color: #c82333;
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -118,27 +134,27 @@
     <section class="category-grid">
         <!-- Casual Game 1 -->
         <div class="card relative">
-            <iframe id="gameIframe1" class="game-iframe" src="https://html5.gamedistribution.com/4ff5b5355c42484da4fc9e90a970cbe8/?gd_sdk_referrer_url=https://gamedistribution.com/games/sort:-my-parking-area/" title="sort:-my-parking-area"></iframe>
+            <iframe id="gameIframe1" class="game-iframe" src="https://html5.gamedistribution.com/ff6e292a8036469fa4cac548f759b631/?gd_sdk_referrer_url=https://gamedistribution.com/games/traffic-jam-hop-on/" title="traffic-jam-hop-on"></iframe>
             <button id="fullscreenButton1" class="fullscreen-button">Fullscreen</button>
             <div class="card-content">
-                <h2 class="text-xl font-bold">sort:-my-parking-area</h2>
-                <p>Draw a course by holding LMB in the direction you want the car to go Mobile device - Swipe your finger in the direction you want the driver to go</p>
+                <h2 class="text-xl font-bold">traffic-jam-hop-on</h2>
+                <p>In Traffic Jam:  challenge your strategy thinking and quick reflexes! This wonderful puzzle game will take you into a colorful parking lot. Your task is to help all kinds of vehicles get out of traffic jams and start smoothly.</p>
             </div>
         </div>
 
         <!-- Casual Game 2 -->
         <div class="card relative">
-            <iframe id="gameIframe2" class="game-iframe" src="https://html5.gamedistribution.com/8c8d1391a74d44fbb34f0da1a9cf5739/?gd_sdk_referrer_url=https://gamedistribution.com/games/digital-circus-find-the-differences/" title="digital-circus-find-the-differences"></iframe>
+            <iframe id="gameIframe2" class="game-iframe" src="https://html5.gamedistribution.com/ab3a6a3d3c534770b4a3a91fff18df2b/?gd_sdk_referrer_url=https://gamedistribution.com/games/lambo-traffic-racer/" title="lambo-traffic-racer"></iframe>
             <button id="fullscreenButton2" class="fullscreen-button">Fullscreen</button>
             <div class="card-content">
-                <h2 class="text-xl font-bold">digital-circus-find-the-differences</h2>
-                <p>Digital Circus Find The Differences.</p>
+                <h2 class="text-xl font-bold">lambo-traffic-racer</h2>
+                <p>Lambo Traffic Racing, you will be playing lambo cars through endless highway. It is a great game for kids and adults. Great fun, great graphics and great lambos to drive ..</p>
             </div>
         </div>
 
         <!-- Sweet Business of Cats: Cakes -->
         <div class="card relative">
-            <iframe id="gameIframe3" class="game-iframe" src="https://html5.gamedistribution.com/8bbb246747684364a3c72b1c34c4767c/?gd_sdk_referrer_url=https://gamedistribution.com/games/sweet-business-of-cats:-cakes/" title="Sweet Business of Cats: Cakes"></iframe>
+            <iframe id="gameIframe3" class="game-iframe" src="httpsg://html5.gamedistribution.com/8bbb246747684364a3c72b1c34c4767c/?gd_sdk_referrer_url=https://gamedistribution.com/games/sweet-business-of-cats:-cakes/" title="Sweet Business of Cats: Cakes"></iframe>
             <button id="fullscreenButton3" class="fullscreen-button">Fullscreen</button>
             <div class="card-content">
                 <h2 class="text-xl font-bold">Sweet Business of Cats: Cakes</h2>
@@ -166,20 +182,50 @@
         }
     }
 
-    document.getElementById('fullscreenButton1').addEventListener('click', () => {
-        const iframe = document.getElementById('gameIframe1');
-        requestFullscreen(iframe);
-    });
+    function exitFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+            document.msExitFullscreen();
+        }
+    }
 
-    document.getElementById('fullscreenButton2').addEventListener('click', () => {
-        const iframe = document.getElementById('gameIframe2');
-        requestFullscreen(iframe);
-    });
+    function addFullscreenListener(iframeId, fullscreenButtonId) {
+        const iframe = document.getElementById(iframeId);
+        const fullscreenButton = document.getElementById(fullscreenButtonId);
 
-    document.getElementById('fullscreenButton3').addEventListener('click', () => {
-        const iframe = document.getElementById('gameIframe3');
-        requestFullscreen(iframe);
-    });
+        fullscreenButton.addEventListener('click', () => {
+            requestFullscreen(iframe);
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            const isFullscreen = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            const exitButton = document.getElementById('exitFullscreenButton');
+
+            if (isFullscreen && isFullscreen.id === iframeId) {
+                if (!exitButton) {
+                    const button = document.createElement('button');
+                    button.id = 'exitFullscreenButton';
+                    button.className = 'exit-fullscreen-button';
+                    button.textContent = 'Exit Fullscreen';
+                    button.addEventListener('click', exitFullscreen);
+                    document.body.appendChild(button);
+                }
+            } else {
+                if (exitButton) {
+                    document.body.removeChild(exitButton);
+                }
+            }
+        });
+    }
+
+    addFullscreenListener('gameIframe1', 'fullscreenButton1');
+    addFullscreenListener('gameIframe2', 'fullscreenButton2');
+    addFullscreenListener('gameIframe3', 'fullscreenButton3');
 </script>
 
 </body>
