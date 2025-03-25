@@ -116,8 +116,9 @@
                 <p>A brief description of Casual Game 2...</p>
             </div>
         </div>
-        <div class="card">
-            <iframe class="game-iframe" src="https://html5.gamedistribution.com/8bbb246747684364a3c72b1c34c4767c/?gd_sdk_referrer_url=https://gamedistribution.com/games/sweet-business-of-cats:-cakes/" title="Sweet Business of Cats: Cakes"></iframe>
+        <div class="card relative">
+            <iframe id="gameIframe" class="game-iframe" src="https://html5.gamedistribution.com/8bbb246747684364a3c72b1c34c4767c/?gd_sdk_referrer_url=https://gamedistribution.com/games/sweet-business-of-cats:-cakes/" title="Sweet Business of Cats: Cakes"></iframe>
+            <button id="fullscreenButton" class="absolute top-2 right-2 bg-blue-500 text-white px-4 py-2 rounded-full cursor-pointer hover:bg-blue-700">Fullscreen</button>
             <div class="card-content">
                 <h2 class="text-xl font-bold">Sweet Business of Cats: Cakes</h2>
                 <p>Manage your cat bakery and serve delicious cakes to customers!</p>
@@ -130,6 +131,21 @@
 <footer class="footer">
     <p>&copy; 2025 iLoveGame. All rights reserved.</p>
 </footer>
+
+<script>
+    document.getElementById('fullscreenButton').addEventListener('click', () => {
+        const iframe = document.getElementById('gameIframe');
+        if (iframe.requestFullscreen) {
+            iframe.requestFullscreen();
+        } else if (iframe.mozRequestFullScreen) { // Firefox
+            iframe.mozRequestFullScreen();
+        } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) { // IE/Edge
+            iframe.msRequestFullscreen();
+        }
+    });
+</script>
 
 </body>
 </html>
