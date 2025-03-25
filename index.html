@@ -1,230 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RQ5FVCZVX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-7RQ5FVCZVX');
-    </script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RQ5FVCZVX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-7RQ5FVCZVX');
-    </script>
-    <!-- 谷歌广告代码 -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7208260866318884" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Love Game - Monster Survivors | Play Online</title>
-    <meta name="description" content="Play Monster Survivors online for free! Survive endless waves of monsters in this thrilling action game. No download required, play instantly on ilovegame.online.">
-    <link rel="canonical" href="https://ilovegame.online/monster-survivors">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="canonical" href="https://ilovegame.com/casual.html">
+    <title>Casual Games - iLoveGame</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Custom styles can be added here */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: #f5f5f7;
-            color: #1d1d1f;
+            background-color: #f3f3f3; /* Light gray background similar to Apple's design */
+            color: #333;
         }
-        .game-container {
-            aspect-ratio: 16/9;
-            max-height: 80vh;
+        .hero-section {
+            background-image: linear-gradient(to bottom right, #fff, #e5e5e5);
+            padding: 4rem 2rem;
+            text-align: center;
         }
-        .apple-blue {
-            background-color: #0071e3;
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
         }
-        .apple-blue:hover {
-            background-color: #0077ed;
+        .card {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
         }
-        .apple-dark {
-            background-color: #1d1d1f;
+        .card:hover {
+            transform: translateY(-5px);
         }
-        .game-frame {
+        .card img {
             width: 100%;
-            height: 100%;
-            border: none;
+            height: auto;
         }
-        @media (max-width: 640px) {
-            .game-container {
-                aspect-ratio: 4/3;
-                max-height: 70vh;
-            }
+        .card-content {
+            padding: 1rem;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        .game-iframe {
+            width: 100%;
+            height: 60vh;
+            border: none;
+            border-radius: 1rem;
+            overflow: hidden;
         }
     </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "VideoGame",
-      "name": "Monster Survivors",
-      "description": "Survive endless waves of monsters in this thrilling action game",
-      "genre": ["Action", "Survival", "Arcade"],
-      "gamePlatform": "Web Browser",
-      "operatingSystem": "Any",
-      "applicationCategory": "Game",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      }
-    }
-    </script>
 </head>
-<body>
-    <header class="apple-dark text-white py-4 shadow-md">
-        <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
-            <a href="https://ilovegame.online" class="text-2xl font-bold">ilovegame<span class="text-red-500">.online</span></a>
-            <nav>
-                <ul class="flex space-x-4 md:space-x-8">
-                    <li><a href="https://ilovegame.online" class="hover:text-gray-300">Home</a></li>
-                    <li><a href="https://ilovegame.online/games" class="hover:text-gray-300">Games</a></li>
-                    <li><a href="https://ilovegame.online/about" class="hover:text-gray-300">About</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body class="font-sans">
 
-    <main class="container mx-auto px-4 md:px-6 py-8">
-        <section class="mb-12">
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">Monster Survivors - Thrilling Action Survival Game</h1>
-            <p class="text-xl text-center text-gray-600 mb-8">Survive endless waves of monsters, upgrade your character, and become the ultimate survivor!</p>
+<!-- Hero Section -->
+<div class="hero-section">
+    <h1 class="text-4xl font-bold mb-4">Casual Games</h1>
+    <p class="text-lg">Relax and enjoy these fun casual games designed for all ages.</p>
+</div>
 
-            <div class="game-container w-full mx-auto rounded-lg overflow-hidden shadow-2xl border-2 border-gray-200 mb-8">
-                <iframe src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" class="game-frame" allowfullscreen></iframe>
-            </div>
+<!-- Navigation Menu -->
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+        <a href="/" class="text-xl font-semibold">iLoveGame</a>
+        <ul class="flex space-x-4">
+            <li><a href="/casual.html" class="hover:text-gray-700">Casual</a></li>
+            <li><a href="/puzzle.html" class="hover:text-gray-700">Puzzle</a></li>
+            <li><a href="/dress_up.html" class="hover:text-gray-700">Dress-Up</a></li>
+            <li><a href="/adventure.html" class="hover:text-gray-700">Adventure</a></li>
+            <li><a href="/racing_driving.html" class="hover:text-gray-700">Racing & Driving</a></li>
+            <li><a href="/shooter.html" class="hover:text-gray-700">Shooter</a></li>
+            <li><a href="/agility.html" class="hover:text-gray-700">Agility</a></li>
+            <li><a href="/battle.html" class="hover:text-gray-700">Battle</a></li>
+            <li><a href="/simulation.html" class="hover:text-gray-700">Simulation</a></li>
+            <li><a href="/art.html" class="hover:text-gray-700">Art</a></li>
+            <li><a href="/match_3.html" class="hover:text-gray-700">Match-3</a></li>
+            <li><a href="/io.html" class="hover:text-gray-700">.io</a></li>
+            <li><a href="/care.html" class="hover:text-gray-700">Care</a></li>
+            <li><a href="/mahjong.html" class="hover:text-gray-700">Mahjong</a></li>
+            <li><a href="/strategy.html" class="hover:text-gray-700">Strategy</a></li>
+            <li><a href="/sport.html" class="hover:text-gray-700">Sport</a></li>
+            <li><a href="/card.html" class="hover:text-gray-700">Card</a></li>
+            <li><a href="/football.html" class="hover:text-gray-700">Football</a></li>
+            <li><a href="/cooking.html" class="hover:text-gray-700">Cooking</a></li>
+            <li><a href="/bubble_shooter.html" class="hover:text-gray-700">Bubble Shooter</a></li>
+            <li><a href="/education.html" class="hover:text-gray-700">Education</a></li>
+            <li><a href="/boardgames.html" class="hover:text-gray-700">Board Games</a></li>
+            <li><a href="/jigsaw.html" class="hover:text-gray-700">Jigsaw</a></li>
+            <li><a href="/merge.html" class="hover:text-gray-700">Merge</a></li>
+            <li><a href="/basketball.html" class="hover:text-gray-700">Basketball</a></li>
+            <li><a href="/quiz.html" class="hover:text-gray-700">Quiz</a></li>
+        </ul>
+    </div>
+</nav>
 
-            <div class="flex justify-center mb-8">
-                <button class="apple-blue text-white font-semibold py-3 px-6 rounded-full shadow-lg transform transition hover:scale-105">
-                    Play Fullscreen
-                </button>
-            </div>
-        </section>
-
-        <section class="bg-white rounded-xl p-6 md:p-8 shadow-lg mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 border-b pb-2">Game Overview</h2>
-            <p class="mb-4">Monster Survivors is an intense action survival game where your goal is to survive as long as possible against endless waves of increasingly difficult monsters. Collect experience points, level up, and unlock powerful abilities to extend your survival time.</p>
-
-            <div class="grid md:grid-cols-2 gap-6 mt-8">
-                <div>
-                    <h2 class="text-xl font-bold mb-3">Key Features</h2>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>Endless survival gameplay with increasing difficulty</li>
-                        <li>Multiple character classes with unique abilities</li>
-                        <li>Dozens of upgrades and power-ups to discover</li>
-                        <li>Beautiful pixel art graphics and immersive sound effects</li>
-                        <li>No download required - play instantly in your browser</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="text-xl font-bold mb-3">How to Play</h2>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>Use WASD or arrow keys to move your character</li>
-                        <li>Automatically attack nearby enemies</li>
-                        <li>Collect gems to gain experience and level up</li>
-                        <li>Choose upgrades wisely to build a strong character</li>
-                        <li>Survive as long as possible and aim for a high score!</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white rounded-xl p-6 md:p-8 shadow-lg mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 border-b pb-2">Game Tips & Strategies</h2>
-            <div class="space-y-4">
-                <div>
-                    <h3 class="text-lg font-semibold">Early Game</h3>
-                    <p>Focus on movement speed and area damage upgrades in the early stages. Stay mobile and try to group enemies together to maximize your attack efficiency.</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold">Mid Game</h3>
-                    <p>Once you've established a good base of upgrades, start focusing on specialty weapons that complement your character class. Health regeneration becomes increasingly important as the difficulty ramps up.</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold">Late Game</h3>
-                    <p>In the later stages, prioritize defensive abilities and crowd control. The enemy density will increase dramatically, so abilities that affect multiple enemies at once become crucial for survival.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white rounded-xl p-6 md:p-8 shadow-lg">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 border-b pb-2">Similar Games You Might Enjoy</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-                <div class="border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <!-- 替换为游戏 iframe -->
-                   <iframe src="https://html5.gamedistribution.com/2854f3f9a9244d76a577fab1e2349219/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" width="800" height="600" scrolling="none" frameborder="0"></iframe>
-                    <div class="p-4">
-                        <h3 class="font-bold">Space Blast</h3>
-                        <p class="text-sm text-gray-600">Play this exciting space blast game.</p>
-                    </div>
-                </div>
-                <div class="border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <div class="h-40 bg-gray-200"></div>
-                    <div class="p-4">
-                        <h3 class="font-bold">Brotato</h3>
-                        <p class="text-sm text-gray-600">Fast-paced arena shooter with roguelite elements and unique characters.</p>
-                    </div>
-                </div>
-                <div class="border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <div class="h-40 bg-gray-200"></div>
-                    <div class="p-4">
-                        <h3 class="font-bold">20 Minutes Till Dawn</h3>
-                        <p class="text-sm text-gray-600">Survive for 20 minutes against hordes of eldritch horrors.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="apple-dark text-white mt-12 py-8">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">ilovegame.online</h3>
-                    <p class="text-gray-300">Your destination for the best free online games. Play instantly without downloads or registration.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white">Top Games</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">New Releases</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Action Games</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Puzzle Games</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Terms of Service</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Cookie Policy</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>© 2025 ilovegame.online. All rights reserved.</p>
+<!-- Main Content -->
+<main class="container mx-auto p-4">
+    <section class="category-grid">
+        <!-- Sample game cards -->
+        <div class="card">
+            <img src="https://via.placeholder.com/250x150?text=Casual+Game+1" alt="Casual Game 1">
+            <div class="card-content">
+                <h2 class="text-xl font-bold">Casual Game 1</h2>
+                <p>A brief description of Casual Game 1...</p>
             </div>
         </div>
-    </footer>
+        <div class="card">
+            <img src="https://via.placeholder.com/250x150?text=Casual+Game+2" alt="Casual Game 2">
+            <div class="card-content">
+                <h2 class="text-xl font-bold">Casual Game 2</h2>
+                <p>A brief description of Casual Game 2...</p>
+            </div>
+        </div>
+        <div class="card">
+            <iframe class="game-iframe" src="https://html5.gamedistribution.com/8bbb246747684364a3c72b1c34c4767c/?gd_sdk_referrer_url=https://gamedistribution.com/games/sweet-business-of-cats:-cakes/" title="Sweet Business of Cats: Cakes"></iframe>
+            <div class="card-content">
+                <h2 class="text-xl font-bold">Sweet Business of Cats: Cakes</h2>
+                <p>Manage your cat bakery and serve delicious cakes to customers!</p>
+            </div>
+        </div>
+    </section>
+</main>
 
-    <script>
-        document.querySelector('button').addEventListener('click', function() {
-            const iframe = document.querySelector('iframe');
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.webkitRequestFullscreen) {
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) {
-                iframe.msRequestFullscreen();
-            }
-        });
-    </script>
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2025 iLoveGame. All rights reserved.</p>
+</footer>
+
 </body>
-</html>    
+</html>
+
+
+
