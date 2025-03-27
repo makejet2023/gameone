@@ -83,38 +83,21 @@
         .exit-fullscreen-button:hover {
             background-color: #c82333;
         }
-        /* Modal Styles */
-        .modal {
+        /* Puzzle Content Styles */
+        #puzzleContent {
             display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 800px;
+            background-color: #fff;
+            padding: 2rem;
+            margin: 2rem;
             border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
+        #puzzleContent iframe {
+            width: 100%;
+            height: 60vh;
+            border: none;
+            border-radius: 1rem;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -132,7 +115,7 @@
         <a href="/" class="text-xl font-semibold">iLoveGame</a>
         <ul class="flex space-x-4">
             <li><a href="/casual.html" class="hover:text-gray-700">Casual</a></li>
-            <li><a href="#" id="openPuzzleModal" class="hover:text-gray-700">Puzzle</a></li>
+            <li><a href="#" id="openPuzzle" class="hover:text-gray-700">Puzzle</a></li>
             <li><a href="/dress_up.html" class="hover:text-gray-700">Dress-Up</a></li>
             <li><a href="/adventure.html" class="hover:text-gray-700">Adventure</a></li>
             <li><a href="/racing_driving.html" class="hover:text-gray-700">Racing & Driving</a></li>
@@ -196,18 +179,48 @@
     </section>
 </main>
 
+<!-- Puzzle Content -->
+<div id="puzzleContent">
+    <h1 class="text-4xl font-bold mb-4">Puzzle Games</h1>
+    <p class="text-lg">Challenge yourself with these engaging puzzle games.</p>
+    <button id="closePuzzle" class="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
+    <div class="category-grid mt-4">
+        <!-- Puzzle Game 1 -->
+        <div class="card relative">
+            <iframe id="puzzleIframe1" class="game-iframe" src="https://example.com/game1" title="Puzzle Game 1"></iframe>
+            <button id="fullscreenButtonPuzzle1" class="fullscreen-button">Fullscreen</button>
+            <div class="card-content">
+                <h2 class="text-xl font-bold">Puzzle Game 1</h2>
+                <p>Description of Puzzle Game 1.</p>
+            </div>
+        </div>
+
+        <!-- Puzzle Game 2 -->
+        <div class="card relative">
+            <iframe id="puzzleIframe2" class="game-iframe" src="https://example.com/game2" title="Puzzle Game 2"></iframe>
+            <button id="fullscreenButtonPuzzle2" class="fullscreen-button">Fullscreen</button>
+            <div class="card-content">
+                <h2 class="text-xl font-bold">Puzzle Game 2</h2>
+                <p>Description of Puzzle Game 2.</p>
+            </div>
+        </div>
+
+        <!-- Puzzle Game 3 -->
+        <div class="card relative">
+            <iframe id="puzzleIframe3" class="game-iframe" src="https://example.com/game3" title="Puzzle Game 3"></iframe>
+            <button id="fullscreenButtonPuzzle3" class="fullscreen-button">Fullscreen</button>
+            <div class="card-content">
+                <h2 class="text-xl font-bold">Puzzle Game 3</h2>
+                <p>Description of Puzzle Game 3.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Footer -->
 <footer class="footer">
     <p>&copy; 2025 iLoveGame. All rights reserved.</p>
 </footer>
-
-<!-- Puzzle Modal -->
-<div id="puzzleModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <iframe id="puzzleIframe" class="game-iframe" src="/puzzle.html" title="Puzzle Games"></iframe>
-    </div>
-</div>
 
 <script>
     function requestFullscreen(element) {
@@ -266,25 +279,20 @@
     addFullscreenListener('gameIframe1', 'fullscreenButton1');
     addFullscreenListener('gameIframe2', 'fullscreenButton2');
     addFullscreenListener('gameIframe3', 'fullscreenButton3');
+    addFullscreenListener('puzzleIframe1', 'fullscreenButtonPuzzle1');
+    addFullscreenListener('puzzleIframe2', 'fullscreenButtonPuzzle2');
+    addFullscreenListener('puzzleIframe3', 'fullscreenButtonPuzzle3');
 
-    // Modal functionality
-    var modal = document.getElementById("puzzleModal");
-    var btn = document.getElementById("openPuzzleModal");
-    var span = document.getElementsByClassName("close")[0];
+    // Show Puzzle Content
+    document.getElementById('openPuzzle').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('puzzleContent').style.display = 'block';
+    });
 
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    // Close Puzzle Content
+    document.getElementById('closePuzzle').addEventListener('click', function() {
+        document.getElementById('puzzleContent').style.display = 'none';
+    });
 </script>
 
 </body>
