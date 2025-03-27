@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://ilovegame.com/casual.html">
+    <link rel="canonical" href="https://www.ilovegame.online/casual.html">
     <title>Casual Games - iLoveGame</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles can be added here */
         body {
-            background-color: #f3f3f3; /* Light gray background similar to Apple's design */
+            background-color: #f3f3f3;
             color: #333;
         }
         .hero-section {
@@ -84,6 +83,39 @@
         .exit-fullscreen-button:hover {
             background-color: #c82333;
         }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 1rem;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -100,7 +132,7 @@
         <a href="/" class="text-xl font-semibold">iLoveGame</a>
         <ul class="flex space-x-4">
             <li><a href="/casual.html" class="hover:text-gray-700">Casual</a></li>
-            <li><a href="/puzzle.html" class="hover:text-gray-700">Puzzle</a></li>
+            <li><a href="#" id="openPuzzleModal" class="hover:text-gray-700">Puzzle</a></li>
             <li><a href="/dress_up.html" class="hover:text-gray-700">Dress-Up</a></li>
             <li><a href="/adventure.html" class="hover:text-gray-700">Adventure</a></li>
             <li><a href="/racing_driving.html" class="hover:text-gray-700">Racing & Driving</a></li>
@@ -169,6 +201,14 @@
     <p>&copy; 2025 iLoveGame. All rights reserved.</p>
 </footer>
 
+<!-- Puzzle Modal -->
+<div id="puzzleModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe id="puzzleIframe" class="game-iframe" src="/puzzle.html" title="Puzzle Games"></iframe>
+    </div>
+</div>
+
 <script>
     function requestFullscreen(element) {
         if (element.requestFullscreen) {
@@ -226,10 +266,26 @@
     addFullscreenListener('gameIframe1', 'fullscreenButton1');
     addFullscreenListener('gameIframe2', 'fullscreenButton2');
     addFullscreenListener('gameIframe3', 'fullscreenButton3');
+
+    // Modal functionality
+    var modal = document.getElementById("puzzleModal");
+    var btn = document.getElementById("openPuzzleModal");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 </script>
 
 </body>
 </html>
-
-
-
