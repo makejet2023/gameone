@@ -100,6 +100,7 @@
         <ul class="flex space-x-4">
             <li><a href="#" id="casualLink" class="hover:text-gray-700 active-category">Casual</a></li>
             <li><a href="#" id="puzzleLink" class="hover:text-gray-700">Puzzle</a></li>
+            <li><a href="#" id="shootLink" class="hover:text-gray-700">Shoot</a></li>
             <!-- Add other categories here -->
         </ul>
     </div>
@@ -114,7 +115,7 @@
             <iframe id="gameIframe1" class="game-iframe" src="https://html5.gamedistribution.com/9f9037619d1b4024b9b860dfcc3b86be/?gd_sdk_referrer_url=https://gamedistribution.com/games/drive-to-survive/" title="drive-to-survive"></iframe>
             <button id="fullscreenButton1" class="fullscreen-button">Fullscreen</button>
             <div class="card-content">
-                <h2 class="text-xl font-bold">traffic-jam-hop-on</h2>
+                <h2 class="text-xl font-bold">Drive to Survive</h2>
                 <p>Objective of the game: Clear the location of zombies using drift in your car.</p>
             </div>
         </div>
@@ -124,7 +125,7 @@
             <iframe id="gameIframe2" class="game-iframe" src="https://html5.gamedistribution.com/ab3a6a3d3c534770b4a3a91fff18df2b/?gd_sdk_referrer_url=https://gamedistribution.com/games/lambo-traffic-racer/" title="lambo-traffic-racer"></iframe>
             <button id="fullscreenButton2" class="fullscreen-button">Fullscreen</button>
             <div class="card-content">
-                <h2 class="text-xl font-bold">lambo-traffic-racer</h2>
+                <h2 class="text-xl font-bold">Lambo Traffic Racer</h2>
                 <p>Lambo Traffic Racing, you will be playing lambo cars through endless highway. It is a great game for kids and adults. Great fun, great graphics and great lambos to drive.</p>
             </div>
         </div>
@@ -249,6 +250,13 @@
     document.getElementById('puzzleLink').addEventListener('click', (event) => {
         event.preventDefault();
         loadCategory('puzzle');
+        document.querySelector('.active-category').classList.remove('active-category');
+        event.target.classList.add('active-category');
+    });
+
+    document.getElementById('shootLink').addEventListener('click', (event) => {
+        event.preventDefault();
+        loadCategory('shoot');
         document.querySelector('.active-category').classList.remove('active-category');
         event.target.classList.add('active-category');
     });
