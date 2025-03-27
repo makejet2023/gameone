@@ -83,22 +83,6 @@
         .exit-fullscreen-button:hover {
             background-color: #c82333;
         }
-        /* Puzzle Content Styles */
-        #puzzleContent {
-            display: none;
-            background-color: #fff;
-            padding: 2rem;
-            margin: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        #puzzleContent iframe {
-            width: 100%;
-            height: 60vh;
-            border: none;
-            border-radius: 1rem;
-            overflow: hidden;
-        }
     </style>
 </head>
 <body class="font-sans">
@@ -114,38 +98,15 @@
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
         <a href="/" class="text-xl font-semibold">iLoveGame</a>
         <ul class="flex space-x-4">
-            <li><a href="/casual.html" class="hover:text-gray-700">Casual</a></li>
-            <li><a href="#" id="openPuzzle" class="hover:text-gray-700">Puzzle</a></li>
-            <li><a href="/dress_up.html" class="hover:text-gray-700">Dress-Up</a></li>
-            <li><a href="/adventure.html" class="hover:text-gray-700">Adventure</a></li>
-            <li><a href="/racing_driving.html" class="hover:text-gray-700">Racing & Driving</a></li>
-            <li><a href="/shooter.html" class="hover:text-gray-700">Shooter</a></li>
-            <li><a href="/agility.html" class="hover:text-gray-700">Agility</a></li>
-            <li><a href="/battle.html" class="hover:text-gray-700">Battle</a></li>
-            <li><a href="/simulation.html" class="hover:text-gray-700">Simulation</a></li>
-            <li><a href="/art.html" class="hover:text-gray-700">Art</a></li>
-            <li><a href="/match_3.html" class="hover:text-gray-700">Match-3</a></li>
-            <li><a href="/io.html" class="hover:text-gray-700">.io</a></li>
-            <li><a href="/care.html" class="hover:text-gray-700">Care</a></li>
-            <li><a href="/mahjong.html" class="hover:text-gray-700">Mahjong</a></li>
-            <li><a href="/strategy.html" class="hover:text-gray-700">Strategy</a></li>
-            <li><a href="/sport.html" class="hover:text-gray-700">Sport</a></li>
-            <li><a href="/card.html" class="hover:text-gray-700">Card</a></li>
-            <li><a href="/football.html" class="hover:text-gray-700">Football</a></li>
-            <li><a href="/cooking.html" class="hover:text-gray-700">Cooking</a></li>
-            <li><a href="/bubble_shooter.html" class="hover:text-gray-700">Bubble Shooter</a></li>
-            <li><a href="/education.html" class="hover:text-gray-700">Education</a></li>
-            <li><a href="/boardgames.html" class="hover:text-gray-700">Board Games</a></li>
-            <li><a href="/jigsaw.html" class="hover:text-gray-700">Jigsaw</a></li>
-            <li><a href="/merge.html" class="hover:text-gray-700">Merge</a></li>
-            <li><a href="/basketball.html" class="hover:text-gray-700">Basketball</a></li>
-            <li><a href="/quiz.html" class="hover:text-gray-700">Quiz</a></li>
+            <li><a href="#" id="casualLink" class="hover:text-gray-700 active-category">Casual</a></li>
+            <li><a href="#" id="puzzleLink" class="hover:text-gray-700">Puzzle</a></li>
+            <!-- Add other categories here -->
         </ul>
     </div>
 </nav>
 
 <!-- Main Content -->
-<main class="container mx-auto p-4">
+<main id="mainContent" class="container mx-auto p-4">
     <section class="category-grid">
         <!-- drive-to-survive -->
         <div class="card relative">
@@ -178,44 +139,6 @@
         </div>
     </section>
 </main>
-
-<!-- Puzzle Content -->
-<div id="puzzleContent">
-    <h1 class="text-4xl font-bold mb-4">Puzzle Games</h1>
-    <p class="text-lg">Challenge yourself with these engaging puzzle games.</p>
-    <button id="closePuzzle" class="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
-    <div class="category-grid mt-4">
-        <!-- Puzzle Game 1 -->
-        <div class="card relative">
-            <iframe id="puzzleIframe1" class="game-iframe" src="https://example.com/game1" title="Puzzle Game 1"></iframe>
-            <button id="fullscreenButtonPuzzle1" class="fullscreen-button">Fullscreen</button>
-            <div class="card-content">
-                <h2 class="text-xl font-bold">Puzzle Game 1</h2>
-                <p>Description of Puzzle Game 1.</p>
-            </div>
-        </div>
-
-        <!-- Puzzle Game 2 -->
-        <div class="card relative">
-            <iframe id="puzzleIframe2" class="game-iframe" src="https://example.com/game2" title="Puzzle Game 2"></iframe>
-            <button id="fullscreenButtonPuzzle2" class="fullscreen-button">Fullscreen</button>
-            <div class="card-content">
-                <h2 class="text-xl font-bold">Puzzle Game 2</h2>
-                <p>Description of Puzzle Game 2.</p>
-            </div>
-        </div>
-
-        <!-- Puzzle Game 3 -->
-        <div class="card relative">
-            <iframe id="puzzleIframe3" class="game-iframe" src="https://example.com/game3" title="Puzzle Game 3"></iframe>
-            <button id="fullscreenButtonPuzzle3" class="fullscreen-button">Fullscreen</button>
-            <div class="card-content">
-                <h2 class="text-xl font-bold">Puzzle Game 3</h2>
-                <p>Description of Puzzle Game 3.</p>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Footer -->
 <footer class="footer">
@@ -279,20 +202,51 @@
     addFullscreenListener('gameIframe1', 'fullscreenButton1');
     addFullscreenListener('gameIframe2', 'fullscreenButton2');
     addFullscreenListener('gameIframe3', 'fullscreenButton3');
-    addFullscreenListener('puzzleIframe1', 'fullscreenButtonPuzzle1');
-    addFullscreenListener('puzzleIframe2', 'fullscreenButtonPuzzle2');
-    addFullscreenListener('puzzleIframe3', 'fullscreenButtonPuzzle3');
 
-    // Show Puzzle Content
-    document.getElementById('openPuzzle').addEventListener('click', function(event) {
+    // Function to load category content
+    async function loadCategory(category) {
+        try {
+            const response = await fetch(`/${category}.html`);
+            if (!response.ok) {
+                throw new Error(`Failed to load ${category} content`);
+            }
+            const content = await response.text();
+            document.getElementById('mainContent').innerHTML = content;
+
+            // Re-add fullscreen listeners after content is loaded
+            setTimeout(() => {
+                document.querySelectorAll('.fullscreen-button').forEach((btn, index) => {
+                    const iframeId = `gameIframe${index + 1}`;
+                    addFullscreenListener(iframeId, btn.id);
+                });
+            }, 0);
+        } catch (error) {
+            console.error(error);
+            alert("Failed to load content. Please try again later.");
+        }
+    }
+
+    // Load Casual content on page load
+    window.onload = () => {
+        loadCategory('casual');
+    };
+
+    // Event listeners for navigation links
+    document.getElementById('casualLink').addEventListener('click', (event) => {
         event.preventDefault();
-        document.getElementById('puzzleContent').style.display = 'block';
+        loadCategory('casual');
+        document.querySelector('.active-category').classList.remove('active-category');
+        event.target.classList.add('active-category');
     });
 
-    // Close Puzzle Content
-    document.getElementById('closePuzzle').addEventListener('click', function() {
-        document.getElementById('puzzleContent').style.display = 'none';
+    document.getElementById('puzzleLink').addEventListener('click', (event) => {
+        event.preventDefault();
+        loadCategory('puzzle');
+        document.querySelector('.active-category').classList.remove('active-category');
+        event.target.classList.add('active-category');
     });
+
+    // Add more event listeners for other categories as needed
 </script>
 
 </body>
