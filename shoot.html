@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://www.ilovegame.online/shoot.html">
+    <title>Shoot Games - iLoveGame</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #f3f3f3;
+            color: #333;
+        }
+        .hero-section {
+            background-image: linear-gradient(to bottom right, #fff, #e5e5e5);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .card {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .card-content {
+            padding: 1rem;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        .game-iframe {
+            width: 100%;
+            height: 60vh;
+            border: none;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .fullscreen-button {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background-color: #007bff;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .fullscreen-button:hover {
+            background-color: #0056b3;
+        }
+        .exit-fullscreen-button {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #dc3545;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+        .exit-fullscreen-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body class="font-sans">
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <h1 class="text-4xl font-bold mb-4">Shoot Games</h1>
+    <p class="text-lg">Experience thrilling shoot games designed for all ages.</p>
+</div>
+
+<!-- Navigation Menu -->
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+        <a href="/" class="text-xl font-semibold">iLoveGame</a>
+        <ul class="flex space-x-4">
+            <li><a href="#" id="casualLink" class="hover:text-gray-700">Casual</a></li>
+            <li><a href="#" id="puzzleLink" class="hover:text-gray-700">Puzzle</a></li>
+            <li><a href="#" id="shootLink" class="hover:text-gray-700 active-category">Shoot</a></li>
+            <!-- Add other categories here -->
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main id="mainContent" class="container mx-auto p-4">
+    <!-- Initial loading of Shoot content -->
+    <section class="category-grid">
+        <!-- bow-and-arrow -->
+        <div class="card relative">
+            <iframe id="gameIframe1" class="game-iframe" src="https://html5.gamedistribution.com/b6ff48a578b042859a4c9e2e322d5bb2/?gd_sdk_referrer_url=https://gamedistribution.com/games/bow-and-arrow/" title="bow-and-arrow"></iframe>
+            <button id="fullscreenButton1" class="fullscreen-button">Fullscreen</button>
+            <div class="card-content">
+                <h2 class="text-xl font-bold">Bow and Arrow</h2>
+                <p>A classic archery game where you aim and shoot arrows at targets.</p>
+            </div>
+        </div>
+
+        <!-- arrow-hit -->
+        <div class="card relative">
+            <iframe id="gameIframe2" class="game-iframe" src="https://html5.gamedistribution.com/d1064e1f5295428e953db2fb4670d673/?gd_sdk_referrer_url=https://gamedistribution.com/games/arrow-hit/" title="arrow-hit"></iframe>
+            <button id="fullscreenButton2" class="fullscreen-button">Fullscreen</button>
+            <div class="card-content">
+                <h2 class="text-xl font-bold">Arrow Hit</h2>
+                <p>Test your skills by hitting moving targets with arrows.</p>
+            </div>
+        </div>
+
+        <!-- archery-master-1 -->
+        <div class="card relative">
+            <iframe id="gameIframe3" class="game-iframe" src="https://html5.gamedistribution.com/41258935dbe74b85be834f64263b9faa/?gd_sdk_referrer_url=https://gamedistribution.com/games/archery-master-1/" title="archery-master-1"></iframe>
+            <button id="fullscreenButton3" class="fullscreen-button">Fullscreen</button>
+            <div class="card-content">
+                <h2 class="text-xl font-bold">Archery Master 1</h2>
+                <p>Become the ultimate archer by mastering various shooting challenges.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2025 iLoveGame. All rights reserved.</p>
+</footer>
+
+<script>
+    function requestFullscreen(element) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) { // Firefox
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) { // IE/Edge
+            element.msRequestFullscreen();
+        }
+    }
+
+    function exitFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+            document.msExitFullscreen();
+        }
+    }
+
+    function addFullscreenListener(iframeId, fullscreenButtonId) {
+        const iframe = document.getElementById(iframeId);
+        const fullscreenButton = document.getElementById(fullscreenButtonId);
+
+        fullscreenButton.addEventListener('click', () => {
+            requestFullscreen(iframe);
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            const isFullscreen = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            const exitButton = document.getElementById('exitFullscreenButton');
+
+            if (isFullscreen && isFullscreen.id === iframeId) {
+                if (!exitButton) {
+                    const button = document.createElement('button');
+                    button.id = 'exitFullscreenButton';
+                    button.className = 'exit-fullscreen-button';
+                    button.textContent = 'Exit Fullscreen';
+                    button.addEventListener('click', exitFullscreen);
+                    document.body.appendChild(button);
+                }
+            } else {
+                if (exitButton) {
+                    document.body.removeChild(exitButton);
+                }
+            }
+        });
+    }
+
+    // Function to load category content
+    async function loadCategory(category) {
+        try {
+            const response = await fetch(`/${category}.html`);
+            if (!response.ok) {
+                throw new Error(`Failed to load ${category} content`);
+            }
+            const content = await response.text();
+            // Extract the main content section from the fetched HTML
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(content, 'text/html');
+            const mainContent = doc.querySelector('#mainContent').innerHTML;
+            document.getElementById('mainContent').innerHTML = mainContent;
+
+            // Update hero section based on the category
+            const heroSectionTitle = doc.querySelector('.hero-section h1').textContent;
+            const heroSectionDescription = doc.querySelector('.hero-section p').textContent;
+            document.querySelector('.hero-section h1').textContent = heroSectionTitle;
+            document.querySelector('.hero-section p').textContent = heroSectionDescription;
+
+            // Re-add fullscreen listeners after content is loaded
+            setTimeout(() => {
+                document.querySelectorAll('.fullscreen-button').forEach((btn, index) => {
+                    const iframeId = `gameIframe${index + 1}`;
+                    addFullscreenListener(iframeId, btn.id);
+                });
+            }, 0);
+        } catch (error) {
+            console.error(error);
+            alert("Failed to load content. Please try again later.");
+        }
+    }
+
+    // Load Shoot content on page load
+    window.onload = () => {
+        loadCategory('shoot');
+    };
+
+    // Event listeners for navigation links
+    document.getElementById('casualLink').addEventListener('click', (event) => {
+        event.preventDefault();
+        loadCategory('casual');
+        document.querySelector('.active-category').classList.remove('active-category');
+        event.target.classList.add('active-category');
+    });
+
+    document.getElementById('puzzleLink').addEventListener('click', (event) => {
+        event.preventDefault();
+        loadCategory('puzzle');
+        document.querySelector('.active-category').classList.remove('active-category');
+        event.target.classList.add('active-category');
+    });
+
+    document.getElementById('shootLink').addEventListener('click', (event) => {
+        event.preventDefault();
+        loadCategory('shoot');
+        document.querySelector('.active-category').classList.remove('active-category');
+        event.target.classList.add('active-category');
+    });
+
+    // Add more event listeners for other categories as needed
+</script>
+
+</body>
+</html>
