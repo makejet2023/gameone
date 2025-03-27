@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="https://www.ilovegame.online/casual.html">
-    <title>Casual Games - iLoveGame</title>
+    <title>iLoveGame</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -87,12 +87,6 @@
 </head>
 <body class="font-sans">
 
-<!-- Hero Section -->
-<div class="hero-section">
-    <h1 class="text-4xl font-bold mb-4">Casual Games</h1>
-    <p class="text-lg">Relax and enjoy these fun casual games designed for all ages.</p>
-</div>
-
 <!-- Navigation Menu -->
 <nav class="bg-white shadow-md">
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
@@ -107,37 +101,7 @@
 
 <!-- Main Content -->
 <main id="mainContent" class="container mx-auto p-4">
-    <section class="category-grid">
-        <!-- drive-to-survive -->
-        <div class="card relative">
-            <iframe id="gameIframe1" class="game-iframe" src="https://html5.gamedistribution.com/9f9037619d1b4024b9b860dfcc3b86be/?gd_sdk_referrer_url=https://gamedistribution.com/games/drive-to-survive//" title="drive-to-survive"></iframe>
-            <button id="fullscreenButton1" class="fullscreen-button">Fullscreen</button>
-            <div class="card-content">
-                <h2 class="text-xl font-bold">traffic-jam-hop-on</h2>
-                <p>Objective of the game: Clear the location of zombies using drift in your car..</p>
-            </div>
-        </div>
-
-        <!-- lambo-traffic-racer -->
-        <div class="card relative">
-            <iframe id="gameIframe2" class="game-iframe" src="https://html5.gamedistribution.com/ab3a6a3d3c534770b4a3a91fff18df2b/?gd_sdk_referrer_url=https://gamedistribution.com/games/lambo-traffic-racer/" title="lambo-traffic-racer"></iframe>
-            <button id="fullscreenButton2" class="fullscreen-button">Fullscreen</button>
-            <div class="card-content">
-                <h2 class="text-xl font-bold">lambo-traffic-racer</h2>
-                <p>Lambo Traffic Racing, you will be playing lambo cars through endless highway. It is a great game for kids and adults. Great fun, great graphics and great lambos to drive ..</p>
-            </div>
-        </div>
-
-        <!-- Sweet Business of Cats: Cakes -->
-        <div class="card relative">
-            <iframe id="gameIframe3" class="game-iframe" src="https://html5.gamedistribution.com/8bbb246747684364a3c72b1c34c4767c/?gd_sdk_referrer_url=https://gamedistribution.com/games/sweet-business-of-cats:-cakes/" title="Sweet Business of Cats: Cakes"></iframe>
-            <button id="fullscreenButton3" class="fullscreen-button">Fullscreen</button>
-            <div class="card-content">
-                <h2 class="text-xl font-bold">Sweet Business of Cats: Cakes</h2>
-                <p>Manage your cat bakery and serve delicious cakes to customers!</p>
-            </div>
-        </div>
-    </section>
+    <!-- Initial loading of Casual content -->
 </main>
 
 <!-- Footer -->
@@ -198,10 +162,6 @@
             }
         });
     }
-
-    addFullscreenListener('gameIframe1', 'fullscreenButton1');
-    addFullscreenListener('gameIframe2', 'fullscreenButton2');
-    addFullscreenListener('gameIframe3', 'fullscreenButton3');
 
     // Function to load category content
     async function loadCategory(category) {
