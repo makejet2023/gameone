@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://www.ilovegame.online/puzzle.html">
+    <title>Puzzle Games - iLoveGame</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #f3f3f3;
+            color: #333;
+        }
+        .hero-section {
+            background-image: linear-gradient(to bottom right, #fff, #e5e5e5);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .card {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .card-content {
+            padding: 1rem;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        .game-iframe {
+            width: 100%;
+            height: 60vh;
+            border: none;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .fullscreen-button {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background-color: #007bff;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .fullscreen-button:hover {
+            background-color: #0056b3;
+        }
+        .exit-fullscreen-button {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #dc3545;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+        .exit-fullscreen-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body class="font-sans">
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <h1 class="text-4xl font-bold mb-4">Puzzle Games</h1>
+    <p class="text-lg">Challenge yourself with these engaging puzzle games.</p>
+</div>
+
+<!-- Navigation Menu -->
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+        <a href="/" class="text-xl font-semibold">iLoveGame</a>
+        <ul class="flex space-x-4">
+            <li><a href="/casual.html" class="hover:text-gray-700">Casual</a></li>
+            <li><a href="/puzzle.html" class="hover:text-gray-700">Puzzle</a></li>
+            <li><a href="/dress_up.html" class="hover:text-gray-700">Dress-Up</a></li>
+            <li><a href="/adventure.html" class="hover:text-gray-700">Adventure</a></li>
+            <li><a href="/racing_driving.html" class="hover:text-gray-700">Racing & Driving</a></li>
+            <li><a href="/shooter.html" class="hover:text-gray-700">Shooter</a></li>
+            <li><a href="/agility.html" class="hover:text-gray-700">Agility</a></li>
+            <li><a href="/battle.html" class="hover:text-gray-700">Battle</a></li>
+            <li><a href="/simulation.html" class="hover:text-gray-700">Simulation</a></li>
+            <li><a href="/art.html" class="hover:text-gray-700">Art</a></li>
+            <li><a href="/match_3.html" class="hover:text-gray-700">Match-3</a></li>
+            <li><a href="/io.html" class="hover:text-gray-700">.io</a></li>
+            <li><a href="/care.html" class="hover:text-gray-700">Care</a></li>
+            <li><a href="/mahjong.html" class="hover:text-gray-700">Mahjong</a></li>
+            <li><a href="/strategy.html" class="hover:text-gray-700">Strategy</a></li>
+            <li><a href="/sport.html" class="hover:text-gray-700">Sport</a></li>
+            <li><a href="/card.html" class="hover:text-gray-700">Card</a></li>
+            <li><a href="/football.html" class="hover:text-gray-700">Football</a></li>
+            <li><a href="/cooking.html" class="hover:text-gray-700">Cooking</a></li>
+            <li><a href="/bubble_shooter.html" class="hover:text-gray-700">Bubble Shooter</a></li>
+            <li><a href="/education.html" class="hover:text-gray-700">Education</a></li>
+            <li><a href="/boardgames.html" class="hover:text-gray-700">Board Games</a></li>
+            <li><a href="/jigsaw.html" class="hover:text-gray-700">Jigsaw</a></li>
+            <li><a href="/merge.html" class="hover:text-gray-700">Merge</a></li>
+            <li><a href="/basketball.html" class="hover:text-gray-700">Basketball</a></li>
+            <li><a href="/quiz.html" class="hover:text-gray-700">Quiz</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="container mx-auto p-4">
+    <section class="category-grid">
+        <!-- Puzzle Game 1 -->
+        <div class="card relative">
+            <iframe id="gameIframe1" class="game-iframe" src="https://example.com/game1" title="Puzzle Game 1"></iframe>
+            <button id="fullscreenButton1" class="fullscreen-button">Fullscreen</button>
+            <div class="card-content">
+                <h2 class="text-xl font-bold">Puzzle Game 1</h2>
+                <p>Description of Puzzle Game 1.</p>
+            </div>
+        </div>
+
+        <!-- Puzzle Game 2 -->
+        <div class="card relative">
+            <iframe id="gameIframe2" class="game-iframe" src="https://example.com/game2" title="Puzzle Game 2"></iframe>
+            <button id="fullscreenButton2" class="fullscreen-button">Fullscreen</button>
+            <div class="card-content">
+                <h2 class="text-xl font-bold">Puzzle Game 2</h2>
+                <p>Description of Puzzle Game 2.</p>
+            </div>
+        </div>
+
+        <!-- Puzzle Game 3 -->
+        <div class="card relative">
+            <iframe id="gameIframe3" class="game-iframe" src="https://example.com/game3" title="Puzzle Game 3"></iframe>
+            <button id="fullscreenButton3" class="fullscreen-button">Fullscreen</button>
+            <div class="card-content">
+                <h2 class="text-xl font-bold">Puzzle Game 3</h2>
+                <p>Description of Puzzle Game 3.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2025 iLoveGame. All rights reserved.</p>
+</footer>
+
+<script>
+    function requestFullscreen(element) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) { // Firefox
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) { // IE/Edge
+            element.msRequestFullscreen();
+        }
+    }
+
+    function exitFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+            document.msExitFullscreen();
+        }
+    }
+
+    function addFullscreenListener(iframeId, fullscreenButtonId) {
+        const iframe = document.getElementById(iframeId);
+        const fullscreenButton = document.getElementById(fullscreenButtonId);
+
+        fullscreenButton.addEventListener('click', () => {
+            requestFullscreen(iframe);
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            const isFullscreen = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            const exitButton = document.getElementById('exitFullscreenButton');
+
+            if (isFullscreen && isFullscreen.id === iframeId) {
+                if (!exitButton) {
+                    const button = document.createElement('button');
+                    button.id = 'exitFullscreenButton';
+                    button.className = 'exit-fullscreen-button';
+                    button.textContent = 'Exit Fullscreen';
+                    button.addEventListener('click', exitFullscreen);
+                    document.body.appendChild(button);
+                }
+            } else {
+                if (exitButton) {
+                    document.body.removeChild(exitButton);
+                }
+            }
+        });
+    }
+
+    addFullscreenListener('gameIframe1', 'fullscreenButton1');
+    addFullscreenListener('gameIframe2', 'fullscreenButton2');
+    addFullscreenListener('gameIframe3', 'fullscreenButton3');
+</script>
+
+</body>
+</html>
