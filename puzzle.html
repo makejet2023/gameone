@@ -7,82 +7,7 @@
     <title>Puzzle Games - iLoveGame</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            background-color: #f3f3f3;
-            color: #333;
-        }
-        .hero-section {
-            background-image: linear-gradient(to bottom right, #fff, #e5e5e5);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-        }
-        .card {
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease-in-out;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card img {
-            width: 100%;
-            height: auto;
-        }
-        .card-content {
-            padding: 1rem;
-        }
-        .footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-        .game-iframe {
-            width: 100%;
-            height: 60vh;
-            border: none;
-            border-radius: 1rem;
-            overflow: hidden;
-        }
-        .fullscreen-button {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background-color: #007bff;
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .fullscreen-button:hover {
-            background-color: #0056b3;
-        }
-        .exit-fullscreen-button {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            background-color: #dc3545;
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            z-index: 1000;
-        }
-        .exit-fullscreen-button:hover {
-            background-color: #c82333;
-        }
+        /* Styles are already included in casual.html */
     </style>
 </head>
 <body class="font-sans">
@@ -93,10 +18,8 @@
     <p class="text-lg">Challenge yourself with these engaging puzzle games.</p>
 </div>
 
-
-
 <!-- Main Content -->
-<main class="container mx-auto p-4">
+<main id="mainContent" class="container mx-auto p-4">
     <section class="category-grid">
         <!-- gta:-grand-vegas-crime1 -->
         <div class="card relative">
@@ -129,11 +52,6 @@
         </div>
     </section>
 </main>
-
-<!-- Footer -->
-<footer class="footer">
-    <p>&copy; 2025 iLoveGame. All rights reserved.</p>
-</footer>
 
 <script>
     function requestFullscreen(element) {
