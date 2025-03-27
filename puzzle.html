@@ -7,7 +7,82 @@
     <title>Puzzle Games - iLoveGame</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Styles are already included in casual.html */
+        body {
+            background-color: #f3f3f3;
+            color: #333;
+        }
+        .hero-section {
+            background-image: linear-gradient(to bottom right, #fff, #e5e5e5);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .card {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .card-content {
+            padding: 1rem;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        .game-iframe {
+            width: 100%;
+            height: 60vh;
+            border: none;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .fullscreen-button {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background-color: #007bff;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .fullscreen-button:hover {
+            background-color: #0056b3;
+        }
+        .exit-fullscreen-button {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #dc3545;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+        .exit-fullscreen-button:hover {
+            background-color: #c82333;
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -18,15 +93,29 @@
     <p class="text-lg">Challenge yourself with these engaging puzzle games.</p>
 </div>
 
+<!-- Navigation Menu -->
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+        <a href="/" class="text-xl font-semibold">iLoveGame</a>
+        <ul class="flex space-x-4">
+            <li><a href="#" id="casualLink" class="hover:text-gray-700">Casual</a></li>
+            <li><a href="#" id="puzzleLink" class="hover:text-gray-700 active-category">Puzzle</a></li>
+            <li><a href="#" id="shootLink" class="hover:text-gray-700">Shoot</a></li>
+            <!-- Add other categories here -->
+        </ul>
+    </div>
+</nav>
+
 <!-- Main Content -->
 <main id="mainContent" class="container mx-auto p-4">
+    <!-- Initial loading of Puzzle content -->
     <section class="category-grid">
         <!-- gta:-grand-vegas-crime1 -->
         <div class="card relative">
             <iframe id="gameIframe1" class="game-iframe" src="https://html5.gamedistribution.com/828864726be944c2bff67fa68d505e96/?gd_sdk_referrer_url=https://gamedistribution.com/games/gta:-grand-vegas-crime/" title="gta:-grand-vegas-crime"></iframe>
             <button id="fullscreenButton1" class="fullscreen-button">Fullscreen</button>
             <div class="card-content">
-                <h2 class="text-xl font-bold">gta:-grand-vegas-crime</h2>
+                <h2 class="text-xl font-bold">GTA: Grand Vegas Crime</h2>
                 <p>Grand Vegas Crime is an open-world action game.</p>
             </div>
         </div>
@@ -36,8 +125,8 @@
             <iframe id="gameIframe2" class="game-iframe" src="https://html5.gamedistribution.com/33c4942945a2451189610f4effdda4eb/?gd_sdk_referrer_url=https://gamedistribution.com/games/kings-and-queens-match-2/" title="kings-and-queens-match-2"></iframe>
             <button id="fullscreenButton2" class="fullscreen-button">Fullscreen</button>
             <div class="card-content">
-                <h2 class="text-xl font-bold">kings-and-queens-match-2</h2>
-                <p>Kings and Queens Match 2 is one of the most anticipated Match 3 sequels!.</p>
+                <h2 class="text-xl font-bold">Kings and Queens Match 2</h2>
+                <p>Kings and Queens Match 2 is one of the most anticipated Match 3 sequels!</p>
             </div>
         </div>
 
@@ -46,12 +135,17 @@
             <iframe id="gameIframe3" class="game-iframe" src="https://html5.gamedistribution.com/090cd83a141d4968ba08fe76b167e968/?gd_sdk_referrer_url=https://gamedistribution.com/games/garden-tales-mahjong-2/" title="garden-tales-mahjong-2"></iframe>
             <button id="fullscreenButton3" class="fullscreen-button">Fullscreen</button>
             <div class="card-content">
-                <h2 class="text-xl font-bold">garden-tales-mahjong-2</h2>
+                <h2 class="text-xl font-bold">Garden Tales Mahjong 2</h2>
                 <p>Welcome to the second instalment of the popular Mahjong game.</p>
             </div>
         </div>
     </section>
 </main>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2025 iLoveGame. All rights reserved.</p>
+</footer>
 
 <script>
     function requestFullscreen(element) {
@@ -107,9 +201,67 @@
         });
     }
 
-    addFullscreenListener('gameIframe1', 'fullscreenButton1');
-    addFullscreenListener('gameIframe2', 'fullscreenButton2');
-    addFullscreenListener('gameIframe3', 'fullscreenButton3');
+    // Function to load category content
+    async function loadCategory(category) {
+        try {
+            const response = await fetch(`/${category}.html`);
+            if (!response.ok) {
+                throw new Error(`Failed to load ${category} content`);
+            }
+            const content = await response.text();
+            // Extract the main content section from the fetched HTML
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(content, 'text/html');
+            const mainContent = doc.querySelector('#mainContent').innerHTML;
+            document.getElementById('mainContent').innerHTML = mainContent;
+
+            // Update hero section based on the category
+            const heroSectionTitle = doc.querySelector('.hero-section h1').textContent;
+            const heroSectionDescription = doc.querySelector('.hero-section p').textContent;
+            document.querySelector('.hero-section h1').textContent = heroSectionTitle;
+            document.querySelector('.hero-section p').textContent = heroSectionDescription;
+
+            // Re-add fullscreen listeners after content is loaded
+            setTimeout(() => {
+                document.querySelectorAll('.fullscreen-button').forEach((btn, index) => {
+                    const iframeId = `gameIframe${index + 1}`;
+                    addFullscreenListener(iframeId, btn.id);
+                });
+            }, 0);
+        } catch (error) {
+            console.error(error);
+            alert("Failed to load content. Please try again later.");
+        }
+    }
+
+    // Load Puzzle content on page load
+    window.onload = () => {
+        loadCategory('puzzle');
+    };
+
+    // Event listeners for navigation links
+    document.getElementById('casualLink').addEventListener('click', (event) => {
+        event.preventDefault();
+        loadCategory('casual');
+        document.querySelector('.active-category').classList.remove('active-category');
+        event.target.classList.add('active-category');
+    });
+
+    document.getElementById('puzzleLink').addEventListener('click', (event) => {
+        event.preventDefault();
+        loadCategory('puzzle');
+        document.querySelector('.active-category').classList.remove('active-category');
+        event.target.classList.add('active-category');
+    });
+
+    document.getElementById('shootLink').addEventListener('click', (event) => {
+        event.preventDefault();
+        loadCategory('shoot');
+        document.querySelector('.active-category').classList.remove('active-category');
+        event.target.classList.add('active-category');
+    });
+
+    // Add more event listeners for other categories as needed
 </script>
 
 </body>
